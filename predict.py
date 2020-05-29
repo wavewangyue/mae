@@ -17,7 +17,7 @@ paths = {
     "image_vector": "./data/image_fc_vectors.npy"
 }
 
-use_image = True
+use_image = False
 
 print("load data...")
 
