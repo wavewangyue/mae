@@ -83,10 +83,10 @@ class DataProcessor(object):
         
         while (len(inputs_seq_batch) < batch_size) and (not self.end_flag):
             p = self.ps[self.pointer]
-            inputs_seq_batch.append(self.inputs_seq[p])
+            inputs_seq_batch.append(self.inputs_seq[p].copy())
             inputs_seq_len_batch.append(len(self.inputs_seq[p]))
-            inputs_attr_batch.append(self.inputs_attr[p])
-            outputs_value_batch.append(self.outputs_value[p])
+            inputs_attr_batch.append(self.inputs_attr[p].copy())
+            outputs_value_batch.append(self.outputs_value[p].copy())
             inputs_image_batch.append(image_vector_container.get_vectors(self.inputs_image_index[p], padding_num=3))
             self.pointer += 1
             if self.pointer >= len(self.ps): self.end_flag = True
